@@ -20,7 +20,7 @@ body{overflow-x:hidden}
 .list{overflow:hidden;max-height:0;opacity:0;transform:translateY(-12px) scale(.99);margin-top:0;transition:max-height .5s cubic-bezier(.2,.9,.18,1),opacity .32s ease,transform .5s cubic-bezier(.2,.9,.18,1),margin-top .5s cubic-bezier(.2,.9,.18,1)}
 .list.open{max-height:9999px;opacity:1;transform:translateY(0) scale(1);margin-top:24px}
 .list-inner{display:flex;gap:14px;flex-direction:column}
-.card{border-radius:22px;overflow:hidden;background:rgba(10,22,38,.42);border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 60px rgba(0,0,0,.34);backdrop-filter:blur(10px) saturate(130%);-webkit-backdrop-filter:blur(10px) saturate(130%);will-change:transform}
+.card{border-radius:22px;overflow:hidden;background:rgba(10,22,38,.42);border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 60px rgba(0,0,0,.34);backdrop-filter:blur(10px) saturate(130%);-webkit-backdrop-filter:blur(10px) saturate(130%);will-change:transform;transition:background .6s ease}
 .head{padding:15px 17px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;gap:8px}
 .head .hd-left{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
 .zodiac-inp{width:100px;padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.35);color:#fff;font-size:13px;outline:0;font-weight:400}
@@ -32,28 +32,34 @@ body{overflow-x:hidden}
 .inner{min-height:0}
 .load,.err{padding:28px;text-align:center;color:rgba(249,243,204,.52)}
 .picwrap{padding:12px}
-.picwrap img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 16px 50px rgba(0,0,0,.38);background:rgba(0,0,0,.32)}
+.picwrap img,.picwrap video{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 16px 50px rgba(0,0,0,.38);background:rgba(0,0,0,.32)}
 .actions{display:flex;justify-content:flex-end;gap:8px;padding:0 12px 12px}
 .btn{border:0;border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;text-decoration:none;font-size:13px;transition:background .25s ease,transform .2s ease,color .25s ease}
 .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.18)}
 .btn.ok{background:linear-gradient(135deg,rgba(120,220,170,.92),rgba(95,180,255,.82));color:#fff}
-.bubble{position:relative;margin:16px 18px 18px 24px;width:fit-content;max-width:calc(100% - 48px);padding:15px 18px 16px;border-radius:20px 20px 20px 7px;line-height:1.82;font-size:15px;letter-spacing:.01em;word-break:break-word;color:rgba(255,250,235,.94);background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.16);backdrop-filter:blur(18px) saturate(165%);-webkit-backdrop-filter:blur(18px) saturate(165%);animation:msgPop .46s cubic-bezier(.2,1.15,.3,1) both}
+.bubble{position:relative;margin:16px 18px 18px 24px;width:fit-content;max-width:calc(100% - 48px);padding:15px 18px 16px;border-radius:20px 20px 20px 7px;line-height:1.82;font-size:15px;letter-spacing:.01em;word-break:break-word;white-space:pre-wrap;color:rgba(255,250,235,.94);background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.16);backdrop-filter:blur(18px) saturate(165%);-webkit-backdrop-filter:blur(18px) saturate(165%);animation:msgPop .46s cubic-bezier(.2,1.15,.3,1) both}
 .bubble:before{content:"";position:absolute;left:-7px;bottom:0;width:17px;height:17px;background:inherit;border-left:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);clip-path:polygon(0 100%,100% 0,100% 100%)}
 @keyframes msgPop{0%{opacity:0;transform:translateY(18px) scale(.94)}62%{opacity:1;transform:translateY(-3px) scale(1.012)}100%{opacity:1;transform:translateY(0) scale(1)}}
 
-/* New themes from 城市与自然配色方案 */
-/* 隙光 */ .glimmer .head{background:linear-gradient(135deg,rgba(25,42,35,.98),rgba(217,204,172,.78));color:#EDEBE2}
-/* 雪岭望 */ .snowpeak .head{background:linear-gradient(135deg,rgba(21,86,147,.98),rgba(104,162,205,.78));color:#D4E9F4}
-/* 暮潮 */ .twilight-t .head{background:linear-gradient(135deg,rgba(29,105,119,.98),rgba(97,145,156,.78));color:#B9B6A5}
-/* 赤岩远天 */ .redstone .head{background:linear-gradient(135deg,rgba(215,139,93,.98),rgba(204,211,220,.78));color:#fff}
-/* 海之眼 */ .seeye .head{background:linear-gradient(135deg,rgba(20,76,91,.98),rgba(57,158,188,.78));color:#BDE1EF}
-/* 归港 */ .harbor .head{background:linear-gradient(135deg,rgba(7,18,62,.98),rgba(80,99,145,.78));color:#C0A096}
-/* 碧岩 */ .jasper .head{background:linear-gradient(135deg,rgba(17,144,193,.98),rgba(219,207,193,.78));color:#fff}
-/* 樱见 */ .sakura .head{background:linear-gradient(135deg,rgba(215,108,39,.98),rgba(232,227,232,.78));color:#fff}
-/* 南墙 */ .southwall .head{background:linear-gradient(135deg,rgba(186,99,55,.98),rgba(249,232,218,.78));color:#fff}
-/* 暮卫城 */ .guard-t .head{background:linear-gradient(135deg,rgba(51,73,94,.98),rgba(201,183,175,.78));color:#C9B7AF}
+/* 城市与自然配色方案 */
+.glimmer .head{background:linear-gradient(135deg,rgba(25,42,35,.98),rgba(217,204,172,.78));color:#EDEBE2}
+.snowpeak .head{background:linear-gradient(135deg,rgba(21,86,147,.98),rgba(104,162,205,.78));color:#D4E9F4}
+.twilight-t .head{background:linear-gradient(135deg,rgba(29,105,119,.98),rgba(97,145,156,.78));color:#B9B6A5}
+.redstone .head{background:linear-gradient(135deg,rgba(215,139,93,.98),rgba(204,211,220,.78));color:#fff}
+.seeye .head{background:linear-gradient(135deg,rgba(20,76,91,.98),rgba(57,158,188,.78));color:#BDE1EF}
+.harbor .head{background:linear-gradient(135deg,rgba(7,18,62,.98),rgba(80,99,145,.78));color:#C0A096}
+.jasper .head{background:linear-gradient(135deg,rgba(17,144,193,.98),rgba(219,207,193,.78));color:#fff}
+.sakura .head{background:linear-gradient(135deg,rgba(215,108,39,.98),rgba(232,227,232,.78));color:#fff}
+.southwall .head{background:linear-gradient(135deg,rgba(186,99,55,.98),rgba(249,232,218,.78));color:#fff}
+.guard-t .head{background:linear-gradient(135deg,rgba(51,73,94,.98),rgba(201,183,175,.78));color:#C9B7AF}
 
-/* Original themes (keep for image cards) */
+/* 自然之光配色方案 */
+.yunbian .head{background:linear-gradient(135deg,rgba(145,140,177,.98),rgba(237,146,138,.78));color:#fff}
+.starfall .head{background:linear-gradient(135deg,rgba(183,80,40,.98),rgba(84,44,31,.78));color:#EDE8E0}
+.lightslit .head{background:linear-gradient(135deg,rgba(251,157,116,.98),rgba(245,106,65,.78));color:#fff}
+.dustway .head{background:linear-gradient(135deg,rgba(199,125,69,.98),rgba(242,205,120,.78));color:#421D0C}
+
+/* Original themes (image cards) */
 .moon .head{background:linear-gradient(135deg,rgba(26,48,76,.98),rgba(95,141,182,.88));color:#F9F3CC}
 .dusk .head{background:linear-gradient(135deg,rgba(88,52,55,.98),rgba(182,110,88,.82));color:#F9F3CC}
 .snow .head{background:linear-gradient(135deg,rgba(6,49,57,.98),rgba(57,99,134,.86));color:#D9E4E8}
@@ -64,7 +70,7 @@ body{overflow-x:hidden}
 .cloud .head{background:linear-gradient(135deg,rgba(40,53,91,.98),rgba(124,83,108,.84));color:#EEE6DD}
 .star .head{background:linear-gradient(135deg,rgba(0,11,81,.98),rgba(67,135,226,.76));color:#F4D49A}
 .night .head{background:linear-gradient(135deg,rgba(4,23,36,.98),rgba(120,93,114,.84));color:#F2DAD1}
-@media(max-width:520px){.wrap{padding:34px 18px 72px}.wrap.top{padding-top:30px}.brand{font-size:clamp(38px,15vw,58px);margin-bottom:8px}.line{font-size:14px;margin-bottom:26px}.head{padding:14px 15px}.picwrap{padding:9px}.picwrap img{border-radius:16px}.bubble{margin:15px 14px 17px 22px;max-width:calc(100% - 38px);font-size:14.5px}.zodiac-inp{width:80px}}
+@media(max-width:520px){.wrap{padding:34px 18px 72px}.wrap.top{padding-top:30px}.brand{font-size:clamp(38px,15vw,58px);margin-bottom:8px}.line{font-size:14px;margin-bottom:26px}.head{padding:14px 15px}.picwrap{padding:9px}.picwrap img,.picwrap video{border-radius:16px}.bubble{margin:15px 14px 17px 22px;max-width:calc(100% - 38px);font-size:14.5px}.zodiac-inp{width:80px}}
 </style>
 </head>
 <body>
@@ -72,7 +78,7 @@ body{overflow-x:hidden}
 <main class="wrap" id="wrap">
 <h1 class="brand">Randomness</h1>
 <div class="line" id="line">正在捞一句夜里的话……</div>
-<div class="tabs"><button class="tab" data-type="txt">文案</button><button class="tab" data-type="img">图片</button></div>
+<div class="tabs"><button class="tab" data-type="txt">文案</button><button class="tab" data-type="img">图片</button><button class="tab" data-type="video">视频</button></div>
 <section class="list" id="list"></section>
 </main>
 <script>
@@ -99,11 +105,16 @@ img:[
   {name:'猫羽雫',theme:'du',kind:'direct',url:'https://shanhe.kim/api/tu/mao.php',proxy:1},
   {name:'随机黑丝',theme:'cres',kind:'jsonimg',url:'https://v2.xxapi.cn/api/heisi'},
   {name:'随机白丝',theme:'lamp',kind:'jsonimg',url:'https://v2.xxapi.cn/api/baisi'}
+],
+video:[
+  {name:'随机热舞',theme:'yunbian',kind:'jsonvideo',url:'http://api.4qb.cn/api/suiji-sp?msg=热舞&type=json',field:'data.url',proxy:1},
+  {name:'随机小姐姐',theme:'starfall',kind:'jsonvideo',url:'https://api.52vmy.cn/api/video/girl',field:'data.url',proxy:1}
 ]};
 const wrap=document.getElementById('wrap'),list=document.getElementById('list'),line=document.getElementById('line');
 let active='';
 
 async function get(u,p){return fetch((p?C:'')+u+(u.includes('?')?'&':'?')+'_='+Date.now())}
+function val(o,path){return path.split('.').reduce((obj,k)=>obj?.[k],o)}
 async function timeLine(){try{let j=await (await get('https://shanhe.kim/api/za/time.php',1)).json();line.textContent=j.nxyj||j.msg||'今晚的月光没有迟到。'}catch(e){line.textContent='今晚的月光没有迟到。'}}timeLine();
 
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
@@ -117,7 +128,11 @@ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
 
 function render(t){
   list.className='list open';
-  list.innerHTML=`<div class="list-inner">${apis[t].map((a,i)=>`<article class="card ${a.theme}" id="c${i}"><div class="head" onclick="openCard(${i})"><span class="hd-left"><span>${a.name}</span>${a.kind==='zodiac'?`<input class="zodiac-inp" id="zdinp" placeholder="输入星座" value="${getZodiac()}" onclick="event.stopPropagation()" onkeydown="if(event.key==='Enter'){event.stopPropagation();openCard(${i})}">`:''}</span><span class="chev">⌄</span></div><div class="body" id="b${i}"><div class="inner"></div></div></article>`).join('')}</div>`;
+  list.innerHTML=`<div class="list-inner">${apis[t].map((a,i)=>{
+    let isColor=a.kind==='color';
+    let isZodiac=a.kind==='zodiac';
+    return `<article class="card ${a.theme}" id="c${i}"><div class="head" onclick="openCard(${i})"><span class="hd-left"><span>${a.name}</span>${isZodiac?`<input class="zodiac-inp" id="zdinp" placeholder="输入星座" value="${getZodiac()}" onclick="event.stopPropagation()" onkeydown="if(event.key==='Enter'){event.stopPropagation();openCard(${i})}">`:''}</span>${!isColor?`<span class="chev">⌄</span>`:''}</div>${!isColor?`<div class="body" id="b${i}"><div class="inner"></div></div>`:''}</article>`;
+  }).join('')}</div>`;
 }
 
 // Zodiac localStorage
@@ -127,11 +142,11 @@ function normZodiac(s){s=s.trim();return s.replace(/座$/,'')}
 
 // Format zodiac text into structured sections
 function fmtZodiac(raw){
-  let s=raw.replace(/\\n/g,'\n').replace(/\n/g,'\n');
+  let s=raw.replace(/\\n/g,'\n');
   let meta='',body=s;
   let m=s.match(/星座：(.+?)\s+贵人方位：(.+?)\s+贵人星座：(.+?)\s+幸运数字：(.+?)\s+幸运颜色：(.+?)(?=\s*(?:整体运势|综合运势|爱情运势|财富运势|事业运势|提示|$))/);
   if(m){
-    meta='🌟 星座：'+m[1]+'　|　🧭 贵人方位：'+m[2]+'　|　♈ 贵人星座：'+m[3]+'\n🔢 幸运数字：'+m[4]+'　|　🎨 幸运颜色：'+m[5];
+    meta='🌟 星座：'+m[1]+'\n🧭 贵人方位：'+m[2]+'\n♈ 贵人星座：'+m[3]+'\n🔢 幸运数字：'+m[4]+'\n🎨 幸运颜色：'+m[5];
     body=s.slice(s.indexOf(m[0])+m[0].length);
   }
   let sections=[];
@@ -144,33 +159,40 @@ function fmtZodiac(raw){
       sections.push('💬 '+title+'：'+content);
     }else{sections.push(p)}
   });
-  return meta+'\n\n'+sections.join('\n\n');
+  return (meta?meta+'\n\n':'')+sections.join('\n\n');
 }
 
 async function openCard(i){
-  let a=apis[active][i],card=document.getElementById('c'+i),b=document.getElementById('b'+i),inner=b.querySelector('.inner');
-  if(a.kind==='zodiac'){
-    let inp=document.getElementById('zdinp'),raw=inp?inp.value.trim():'';
-    if(!raw){b.classList.add('open');card.classList.remove('open');inner.innerHTML='<div class="err">请先输入你的星座，如：射手、射手座、白羊……</div>';return}
-    let z=normZodiac(raw);setZodiac(z);
-  }
+  let a=apis[active][i],card=document.getElementById('c'+i);
+
+  // ── Color card: no body, just change card background ──
   if(a.kind==='color'){
-    if(b.classList.contains('open')){b.classList.remove('open');card.classList.remove('open');return}
-    b.classList.add('open');card.classList.add('open');
-    inner.innerHTML='<div class="load">加载中……</div>';
+    card.style.cursor='wait';
     try{
       let raw=await (await get(a.url,a.proxy)).text();
       let hex=raw.replace(/[^#a-fA-F0-9]/g,'').slice(0,7);
-      inner.innerHTML=`<div class="bubble" id="bub${i}">${esc(hex)}</div><div class="actions"><button class="btn" onclick="event.stopPropagation();copyFromBubble(this)">复制</button></div>`;
-      setTimeout(()=>{let bub=document.getElementById('bub'+i);if(bub)bub.scrollIntoView({behavior:'smooth',block:'center'})},100);
-    }catch(e){inner.innerHTML='<div class="err">这个接口这次没接住，刷新再试。</div>'}
+      card.style.background=hex+'cc';
+    }catch(e){card.style.background='rgba(10,22,38,.6)'}
+    card.style.cursor='';
     return;
   }
-  if(b.classList.contains('open')){
-    b.classList.remove('open');card.classList.remove('open');return;
+
+  let b=document.getElementById('b'+i),inner=b.querySelector('.inner');
+
+  // ── Zodiac guard ──
+  if(a.kind==='zodiac'){
+    let inp=document.getElementById('zdinp'),raw=inp?inp.value.trim():'';
+    if(!raw){b.classList.add('open');card.classList.remove('open');inner.innerHTML='<div class="err">请先输入你的星座，如：射手、射手座、白羊……</div>';return}
+    setZodiac(normZodiac(raw));
   }
+
+  // ── Toggle off ──
+  if(b.classList.contains('open')){b.classList.remove('open');card.classList.remove('open');return}
+
+  // ── Open ──
   b.classList.add('open');card.classList.add('open');
   inner.innerHTML='<div class="load">加载中……</div>';
+
   try{
     if(active==='img'){
       let src=a.url;
@@ -181,7 +203,12 @@ async function openCard(i){
       }
       src+=(src.includes('?')?'&':'?')+'t='+Date.now();
       let imgId='img_'+Date.now()+'_'+i;
-      inner.innerHTML=`<div class="picwrap"><img id="${imgId}" src="${src}" onload="setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'center'}),80)" onerror="this.parentNode.innerHTML='<div class=err>图片加载失败，点开接口试试</div>'"></div><div class="actions"><button class="btn" onclick="event.stopPropagation();downloadShown('${imgId}',this)">下载</button></div>`;
+      inner.innerHTML=`<div class="picwrap"><img id="${imgId}" src="${src}" onload="setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'center'}),80)" onerror="this.parentNode.innerHTML='<div class=err>图片加载失败</div>'"></div><div class="actions"><button class="btn" onclick="event.stopPropagation();downloadShown('${imgId}',this)">下载</button></div>`;
+    }else if(active==='video'){
+      let j=await (await get(a.url,a.proxy)).json();
+      let src=val(j,a.field)||j.url||j.data;
+      let vidId='vid_'+Date.now()+'_'+i;
+      inner.innerHTML=`<div class="picwrap"><video id="${vidId}" src="${src}" controls playsinline preload="metadata" onloadedmetadata="setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'center'}),80)" onerror="this.parentNode.innerHTML='<div class=err>视频加载失败</div>'"></video></div>`;
     }else{
       let text='';
       if(a.kind==='jsontext'){
@@ -207,7 +234,6 @@ async function openCard(i){
         text=raw.trim();
       }else{
         text=await (await get(a.url,a.proxy)).text();
-        text=text.replace(/&/g,'\n');
       }
       inner.innerHTML=`<div class="bubble" id="bub${i}">${esc(text)}</div><div class="actions"><button class="btn" onclick="event.stopPropagation();copyFromBubble(this)">复制</button></div>`;
       setTimeout(()=>{let bub=document.getElementById('bub'+i);if(bub)bub.scrollIntoView({behavior:'smooth',block:'center'})},100);
