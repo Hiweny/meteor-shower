@@ -45,3 +45,344 @@ body{overflow-x:hidden}
 .bubble{position:relative;margin:16px 18px 18px 24px;width:fit-content;max-width:calc(100% - 48px);padding:15px 18px 16px;border-radius:20px 20px 20px 7px;line-height:1.82;font-size:15px;letter-spacing:.01em;word-break:break-word;white-space:pre-wrap;color:rgba(255,250,235,.94);background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.16);backdrop-filter:blur(18px) saturate(165%);-webkit-backdrop-filter:blur(18px) saturate(165%);animation:msgPop .46s cubic-bezier(.2,1.15,.3,1) both}
 .bubble:before{content:"";position:absolute;left:-7px;bottom:0;width:17px;height:17px;background:inherit;border-left:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);clip-path:polygon(0 100%,100% 0,100% 100%)}
 @keyframes msgPop{0%{opacity:0;transform:translateY(18px) scale(.94)}62%{opacity:1;transform:translateY(-3px) scale(1.012)}100%{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Carousel */
+.carousel{position:relative;padding:12px;overflow:hidden;touch-action:pan-y}
+.carousel-track{display:flex;transition:transform .45s cubic-bezier(.25,.8,.25,1);will-change:transform}
+.carousel-track img{flex:0 0 100%;width:100%;height:auto;border-radius:18px;box-shadow:0 16px 50px rgba(0,0,0,.38);background:rgba(0,0,0,.32);pointer-events:none}
+.carousel-nav{display:flex;justify-content:center;gap:8px;padding:8px 0 0}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .3s ease}
+.carousel-dot.active{background:rgba(255,255,255,.85);transform:scale(1.4)}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;transition:all .25s ease;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.carousel-arrow:hover{background:rgba(0,0,0,.65);border-color:rgba(255,255,255,.4)}
+.carousel-arrow.left{left:20px}
+.carousel-arrow.right{right:20px}
+
+/* Voice list */
+.voice-card{padding:0}
+.voice-hero{display:flex;align-items:center;gap:12px;padding:14px 18px 10px}
+.voice-hero img{width:48px;height:48px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
+.voice-hero span{font-size:16px;font-weight:650;color:rgba(255,250,235,.9)}
+.voice-list{display:flex;flex-direction:column;gap:8px;padding:8px 14px 14px}
+.voice-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .25s ease}
+.voice-item:hover{background:rgba(255,255,255,.14)}
+.voice-item .v-play{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.5);background:rgba(255,255,255,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.voice-item .v-play .vtri{width:0;height:0;border-left:9px solid rgba(255,255,255,.7);border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.voice-item .v-play.playing .vtri{width:8px;height:8px;border:none;background:rgba(255,255,255,.7);margin-left:0;border-radius:1px}
+.voice-item .v-text{font-size:14px;color:rgba(255,250,235,.85);flex:1;line-height:1.5}
+
+/* Audio player */
+.audio-bar{display:flex;align-items:center;gap:12px;padding:10px 18px 14px}
+.audio-bar audio{flex:1;height:36px;border-radius:10px}
+
+/* ===== 城市与自然配色 ===== */
+.glimmer .head{background:linear-gradient(135deg,rgba(25,42,35,.98),rgba(217,204,172,.78));color:#EDEBE2}
+.snowpeak .head{background:linear-gradient(135deg,rgba(21,86,147,.98),rgba(104,162,205,.78));color:#D4E9F4}
+.twilight-t .head{background:linear-gradient(135deg,rgba(29,105,119,.98),rgba(97,145,156,.78));color:#B9B6A5}
+.redstone .head{background:linear-gradient(135deg,rgba(215,139,93,.98),rgba(204,211,220,.78));color:#fff}
+.seeye .head{background:linear-gradient(135deg,rgba(20,76,91,.98),rgba(57,158,188,.78));color:#BDE1EF}
+.harbor .head{background:linear-gradient(135deg,rgba(7,18,62,.98),rgba(80,99,145,.78));color:#C0A096}
+.jasper .head{background:linear-gradient(135deg,rgba(17,144,193,.98),rgba(219,207,193,.78));color:#fff}
+.sakura .head{background:linear-gradient(135deg,rgba(215,108,39,.98),rgba(232,227,232,.78));color:#fff}
+.southwall .head{background:linear-gradient(135deg,rgba(186,99,55,.98),rgba(249,232,218,.78));color:#fff}
+.guard-t .head{background:linear-gradient(135deg,rgba(51,73,94,.98),rgba(201,183,175,.78));color:#C9B7AF}
+
+/* ===== 自然之光配色 ===== */
+.yunbian .head{background:linear-gradient(135deg,rgba(145,140,177,.98),rgba(237,146,138,.78));color:#fff}
+.starfall .head{background:linear-gradient(135deg,rgba(183,80,40,.98),rgba(84,44,31,.78));color:#EDE8E0}
+.lightslit .head{background:linear-gradient(135deg,rgba(251,157,116,.98),rgba(245,106,65,.78));color:#fff}
+.dustway .head{background:linear-gradient(135deg,rgba(199,125,69,.98),rgba(242,205,120,.78));color:#421D0C}
+
+/* ===== 莫奈主题配色 ===== */
+.castle .head{background:linear-gradient(135deg,rgba(211,190,142,.98),rgba(139,155,176,.78));color:#2a1f0e}
+.windmove .head{background:linear-gradient(135deg,rgba(139,163,181,.98),rgba(201,196,182,.78));color:#2D3C2E}
+.forestspring .head{background:linear-gradient(135deg,rgba(85,108,90,.98),rgba(28,39,23,.78));color:#CFD2BE}
+.dreamlake .head{background:linear-gradient(135deg,rgba(83,107,81,.98),rgba(123,144,88,.78));color:#CDD0C6}
+.domefog .head{background:linear-gradient(135deg,rgba(89,99,109,.98),rgba(154,166,176,.78));color:#fff}
+.autumnfield .head{background:linear-gradient(135deg,rgba(228,197,124,.98),rgba(92,137,199,.78));color:#fff}
+.watermirror .head{background:linear-gradient(135deg,rgba(75,100,147,.98),rgba(43,56,52,.78));color:#748195}
+.fogdock .head{background:linear-gradient(135deg,rgba(88,118,123,.98),rgba(68,94,96,.78));color:#B5B5A6}
+.lavender .head{background:linear-gradient(135deg,rgba(129,91,172,.98),rgba(234,195,214,.78));color:#fff}
+.ridgeline .head{background:linear-gradient(135deg,rgba(201,83,95,.98),rgba(131,177,170,.78));color:#fff}
+.lateday .head{background:linear-gradient(135deg,rgba(247,240,220,.98),rgba(184,177,157,.78));color:#57422B}
+.vine .head{background:linear-gradient(135deg,rgba(130,109,156,.98),rgba(240,240,243,.78));color:#493258}
+.greenmist .head{background:linear-gradient(135deg,rgba(221,118,127,.98),rgba(90,154,170,.78));color:#fff}
+.springmsg .head{background:linear-gradient(135deg,rgba(15,67,13,.98),rgba(97,119,87,.78));color:#DDE9ED}
+.summercool .head{background:linear-gradient(135deg,rgba(153,180,168,.98),rgba(238,233,211,.78));color:#AC291E}
+.springfield .head{background:linear-gradient(135deg,rgba(208,187,3,.98),rgba(57,74,8,.78));color:#E3D63C}
+
+/* Original themes (image cards) */
+.moon .head{background:linear-gradient(135deg,rgba(26,48,76,.98),rgba(95,141,182,.88));color:#F9F3CC}
+.dusk .head{background:linear-gradient(135deg,rgba(88,52,55,.98),rgba(182,110,88,.82));color:#F9F3CC}
+.snow .head{background:linear-gradient(135deg,rgba(6,49,57,.98),rgba(57,99,134,.86));color:#D9E4E8}
+.du .head{background:linear-gradient(135deg,rgba(2,35,47,.98),rgba(151,107,63,.86));color:#FFD58C}
+.cres .head{background:linear-gradient(135deg,rgba(41,48,78,.98),rgba(117,86,106,.86));color:#F0D7B9}
+.lamp .head{background:linear-gradient(135deg,rgba(33,50,64,.98),rgba(219,107,73,.82));color:#fff}
+.rose .head{background:linear-gradient(135deg,rgba(55,24,73,.98),rgba(224,125,114,.8));color:#FFE0D6}
+.cloud .head{background:linear-gradient(135deg,rgba(40,53,91,.98),rgba(124,83,108,.84));color:#EEE6DD}
+.star .head{background:linear-gradient(135deg,rgba(0,11,81,.98),rgba(67,135,226,.76));color:#F4D49A}
+.night .head{background:linear-gradient(135deg,rgba(4,23,36,.98),rgba(120,93,114,.84));color:#F2DAD1}
+@media(max-width:520px){.wrap{padding:34px 18px 72px}.wrap.top{padding-top:30px}.brand{font-size:clamp(38px,15vw,58px);margin-bottom:8px}.line{font-size:14px;margin-bottom:26px}.head{padding:14px 15px}.picwrap{padding:9px}.picwrap img,.picwrap video{border-radius:16px}.bubble{margin:15px 14px 17px 22px;max-width:calc(100% - 38px);font-size:14.5px}.zodiac-inp,.hero-inp{width:80px}.carousel-arrow{width:30px;height:30px;font-size:15px}.carousel-arrow.left{left:16px}.carousel-arrow.right{right:16px}}
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<main class="wrap" id="wrap">
+<h1 class="brand">Randomness</h1>
+<div class="line" id="line">正在捞一句夜里的话……</div>
+<div class="tabs"><button class="tab" data-type="txt">文案</button><button class="tab" data-type="img">图片</button><button class="tab" data-type="video">视频</button><button class="tab" data-type="audio">音频</button></div>
+<section class="list" id="list"></section>
+</main>
+<script>
+const C='https://corsproxy.io/?';
+
+const apis={
+txt:[
+  {name:'人生倒计时',theme:'glimmer',kind:'countdown',url:'https://shanhe.kim/api/za/rsdjs.php',proxy:1},
+  {name:'星座运势',theme:'snowpeak',kind:'zodiac',url:'https://shanhe.kim/api/za/xingzuo.php',proxy:1},
+  {name:'历史上的今天',theme:'twilight-t',kind:'history',url:'https://shanhe.kim/api/za/lishi.php',proxy:1},
+  {name:'随机抽签',theme:'redstone',kind:'chouq',url:'https://shanhe.kim/api/za/chouq.php',proxy:1},
+  {name:'今日诗词',theme:'seeye',kind:'poem',url:'https://v2.jinrishici.com/one.json'},
+  {name:'BugPk 一言',theme:'harbor',kind:'text',url:'https://api.bugpk.com/api/yiyan',proxy:1},
+  {name:'Hitokoto 一言',theme:'jasper',kind:'text',url:'https://v1.hitokoto.cn/?encode=text'},
+  {name:'土味情话',theme:'sakura',kind:'text',url:'https://api.lovelive.tools/api/SweetNothings',proxy:1},
+  {name:'舔狗日记',theme:'southwall',kind:'jsontext',url:'https://shanhe.kim/api/za/tgrj.php?type=json',field:'text',proxy:1},
+  {name:'聚合语录',theme:'guard-t',kind:'juhe',url:'https://shanhe.kim/api/za/juhe.php',proxy:1},
+  {name:'随机色卡',theme:'',kind:'color',url:'https://shanhe.kim/api/wz/color.php',proxy:1},
+  {name:'出生人口统计',theme:'castle',kind:'text',url:'http://api.yujn.cn/api/sjrk.php',proxy:1},
+  {name:'随机诗经',theme:'windmove',kind:'text',url:'http://api.yujn.cn/api/shijing.php',proxy:1}
+],
+img:[
+  {name:'随机头像',theme:'moon',kind:'direct',url:'https://shanhe.kim/api/tu/avatar.php',proxy:1},
+  {name:'随机 JK 制服',theme:'dusk',kind:'direct',url:'https://shanhe.kim/api/tu/jk.php',proxy:1},
+  {name:'随机二次元',theme:'snow',kind:'direct',url:'https://shanhe.kim/api/tu/anime.php',proxy:1},
+  {name:'猫羽雫',theme:'du',kind:'direct',url:'https://shanhe.kim/api/tu/mao.php',proxy:1},
+  {name:'随机黑丝',theme:'cres',kind:'jsonimg',url:'https://v2.xxapi.cn/api/heisi'},
+  {name:'随机白丝',theme:'lamp',kind:'jsonimg',url:'https://v2.xxapi.cn/api/baisi'},
+  {name:'Cosplay 图集',theme:'forestspring',kind:'cosplay',url:'http://api.yujn.cn/api/cosplay.php',proxy:1},
+  {name:'高质量 ACG',theme:'dreamlake',kind:'direct',url:'http://api.yujn.cn/api/gzl_ACG.php',proxy:1},
+  {name:'随机鲜花',theme:'domefog',kind:'direct',url:'http://api.yujn.cn/api/xianhua.php',proxy:1}
+],
+video:[
+  {name:'小姐姐视频',theme:'autumnfield',kind:'direct',url:'https://api.kuleu.com/api/MP4_xiaojiejie',proxy:1},
+  {name:'随机小姐姐',theme:'watermirror',kind:'direct',url:'http://api.yujn.cn/api/xjj.php',proxy:1},
+  {name:'快手女大学生',theme:'fogdock',kind:'direct',url:'http://api.yujn.cn/api/nvda.php',proxy:1},
+  {name:'综合小姐姐',theme:'lavender',kind:'direct',url:'http://api.yujn.cn/api/juhexjj.php',proxy:1},
+  {name:'身材小姐姐',theme:'ridgeline',kind:'direct',url:'http://api.yujn.cn/api/wmsc.php',proxy:1},
+  {name:'周杰伦歌曲',theme:'lateday',kind:'direct',url:'http://api.yujn.cn/api/jay.php',proxy:1},
+  {name:'玉足视频',theme:'vine',kind:'direct',url:'http://api.yujn.cn/api/jpmt.php',proxy:1},
+  {name:'纯情女高',theme:'greenmist',kind:'direct',url:'http://api.yujn.cn/api/nvgao.php',proxy:1},
+  {name:'随机萝莉',theme:'springmsg',kind:'direct',url:'http://api.yujn.cn/api/luoli.php',proxy:1},
+  {name:'JK 洛丽塔',theme:'summercool',kind:'direct',url:'http://api.yujn.cn/api/jksp.php',proxy:1},
+  {name:'美女慢摇',theme:'yunbian',kind:'direct',url:'http://api.yujn.cn/api/manyao.php',proxy:1}
+],
+audio:[
+  {name:'随机 DJ',theme:'springfield',kind:'audio',url:'http://api.yujn.cn/api/dj.php',proxy:1},
+  {name:'王者荣耀语音',theme:'lightslit',kind:'voice',url:'http://api.yujn.cn/api/wzyyb.php',proxy:1}
+]};
+const wrap=document.getElementById('wrap'),list=document.getElementById('list'),line=document.getElementById('line');
+let active='',currentAudio=null;
+
+async function get(u,p){return fetch((p?C:'')+u+(u.includes('?')?'&':'?')+'_='+Date.now())}
+function val(o,path){return path.split('.').reduce((obj,k)=>obj?.[k],o)}
+async function timeLine(){try{let j=await (await get('https://shanhe.kim/api/za/time.php',1)).json();line.textContent=j.nxyj||j.msg||'今晚的月光没有迟到。'}catch(e){line.textContent='今晚的月光没有迟到。'}}timeLine();
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  let t=b.dataset.type;
+  if(active===t){active='';list.className='list';list.innerHTML='';wrap.classList.remove('top');b.classList.remove('on');return}
+  active=t;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));
+  wrap.classList.add('top');
+  render(t);
+});
+
+function render(t){
+  list.className='list open';
+  list.innerHTML=`<div class="list-inner">${apis[t].map((a,i)=>{
+    let isColor=a.kind==='color',isZodiac=a.kind==='zodiac',isVoice=a.kind==='voice',isAudio=a.kind==='audio';
+    let extra='';
+    if(isZodiac)extra=`<input class="zodiac-inp" id="zdinp" placeholder="输入星座" value="${getZodiac()}" onclick="event.stopPropagation()" onkeydown="if(event.key==='Enter'){event.stopPropagation();openCard(${i})}">`;
+    if(isVoice)extra=`<input class="hero-inp" id="heroinp" placeholder="英雄名" value="李白" onclick="event.stopPropagation()" onkeydown="if(event.key==='Enter'){event.stopPropagation();openCard(${i})}">`;
+    let right;
+    if(isColor)right='';
+    else if(isAudio)right=`<div class="play-btn" id="pbtn${i}" onclick="event.stopPropagation();toggleAudio(${i})"><div class="tri"></div></div>`;
+    else right=`<span class="chev">⌄</span>`;
+    let body=isColor||isAudio?'':`<div class="body" id="b${i}"><div class="inner"></div></div>`;
+    return `<article class="card ${a.theme}" id="c${i}"><div class="head" onclick="openCard(${i})"><span class="hd-left"><span>${a.name}</span>${extra}</span>${right}</div>${body}</article>`;
+  }).join('')}</div>`;
+}
+
+// Zodiac
+function getZodiac(){try{return localStorage.getItem('zodiac_sign')||''}catch(e){return''}}
+function setZodiac(v){try{localStorage.setItem('zodiac_sign',v)}catch(e){}}
+function normZodiac(s){s=s.trim();return s.replace(/座$/,'')}
+function fmtZodiac(raw){
+  let s=raw.replace(/\\n/g,'\n'),meta='',body=s;
+  let m=s.match(/星座：(.+?)\s+贵人方位：(.+?)\s+贵人星座：(.+?)\s+幸运数字：(.+?)\s+幸运颜色：(.+?)(?=\s*(?:整体运势|综合运势|爱情运势|财富运势|事业运势|提示|$))/);
+  if(m){meta='🌟 星座：'+m[1]+'\n🧭 贵人方位：'+m[2]+'\n♈ 贵人星座：'+m[3]+'\n🔢 幸运数字：'+m[4]+'\n🎨 幸运颜色：'+m[5];body=s.slice(s.indexOf(m[0])+m[0].length)}
+  let sections=[],parts=body.split(/(?=(?:整体运势|综合运势|爱情运势|财富运势|事业运势|提示)[：:])/);
+  parts.forEach(p=>{p=p.trim();if(!p)return;let colon=p.indexOf('：');if(colon===-1)colon=p.indexOf(':');if(colon>-1){let t=p.slice(0,colon),c=p.slice(colon+1).trim();sections.push('💬 '+t+'：'+c)}else sections.push(p)});
+  return (meta?meta+'\n\n':'')+sections.join('\n\n');
+}
+
+// Audio toggle
+async function toggleAudio(i){
+  let a=apis[active][i],btn=document.getElementById('pbtn'+i);
+  if(currentAudio&&currentAudio.i===i&&!currentAudio.el.paused){
+    currentAudio.el.pause();btn.classList.remove('playing');
+    return;
+  }
+  if(currentAudio){currentAudio.el.pause();let pb=document.getElementById('pbtn'+currentAudio.i);if(pb)pb.classList.remove('playing')}
+  btn.classList.add('playing');
+  try{
+    let src=a.url;
+    if(a.kind==='voice'){let inp=document.getElementById('heroinp'),h=inp?inp.value.trim()||'李白':'李白';src=a.url+'?msg='+encodeURIComponent(h)}
+    let blobUrl=await (await get(src,a.proxy)).blob();
+    let url=URL.createObjectURL(blobUrl);
+    let el=new Audio(url);el.play();
+    currentAudio={el,i,url};
+    btn.classList.add('playing');
+    el.onended=()=>{btn.classList.remove('playing');currentAudio=null};
+    el.onerror=()=>{btn.classList.remove('playing');currentAudio=null};
+  }catch(e){btn.classList.remove('playing')}
+}
+
+// Carousel state
+let carouselState={};
+
+async function openCard(i){
+  let a=apis[active][i],card=document.getElementById('c'+i);
+
+  // Color card
+  if(a.kind==='color'){
+    card.style.cursor='wait';
+    try{let raw=await (await get(a.url,a.proxy)).text();card.style.background=raw.replace(/[^#a-fA-F0-9]/g,'').slice(0,7)+'cc'}catch(e){card.style.background='rgba(10,22,38,.6)'}
+    card.style.cursor='';return;
+  }
+
+  // Audio card - handled by toggleAudio
+  if(a.kind==='audio'){toggleAudio(i);return}
+  if(a.kind==='voice'){openVoiceCard(i);return}
+
+  let b=document.getElementById('b'+i),inner=b.querySelector('.inner');
+
+  if(a.kind==='zodiac'){
+    let inp=document.getElementById('zdinp'),raw=inp?inp.value.trim():'';
+    if(!raw){b.classList.add('open');card.classList.remove('open');inner.innerHTML='<div class="err">请先输入你的星座，如：射手、射手座、白羊……</div>';return}
+    setZodiac(normZodiac(raw));
+  }
+  if(b.classList.contains('open')){b.classList.remove('open');card.classList.remove('open');return}
+  b.classList.add('open');card.classList.add('open');
+  inner.innerHTML='<div class="load">加载中……</div>';
+
+  try{
+    if(active==='img'){
+      if(a.kind==='cosplay'){
+        let j=await (await get(a.url,a.proxy)).json();
+        let imgs=j.data?.images||j.images||[];
+        let cid='cs_'+Date.now()+'_'+i;
+        carouselState[cid]=0;
+        inner.innerHTML=`<div class="carousel" id="${cid}"><div class="carousel-track" style="transform:translateX(0%)">${imgs.map((src,k)=>`<img src="${src}" onerror="this.style.display='none'" loading="lazy">`).join('')}</div><div class="carousel-arrow left" onclick="carouselShift('${cid}',-1)">‹</div><div class="carousel-arrow right" onclick="carouselShift('${cid}',1)">›</div><div class="carousel-nav">${imgs.map((_,k)=>`<div class="carousel-dot${k===0?' active':''}" onclick="carouselGo('${cid}',${k})"></div>`).join('')}</div></div><div class="actions"><span style="color:rgba(255,255,255,.5);font-size:13px;padding:4px 0">${j.data?.title||''} · ${imgs.length} 张</span></div>`;
+        // Touch swipe
+        (function(id,total){let el=document.getElementById(id),sx=0;el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX});el.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)carouselShift(id,dx<0?1:-1)})})(cid,imgs.length);
+        setTimeout(()=>{let el=document.getElementById(cid);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},100);
+      }else{
+        let src=a.url;
+        if(a.kind==='direct'){try{let j=await (await get(a.url+'?type=json',a.proxy)).json();src=j.url||j.imgurl||j.data||j.pic||a.url}catch(_){src=a.url}}
+        else if(a.kind==='jsonimg'){let j=await (await get(a.url)).json();src=j.data||j.imgurl||j.url}
+        src+=(src.includes('?')?'&':'?')+'t='+Date.now();
+        let imgId='img_'+Date.now()+'_'+i;
+        inner.innerHTML=`<div class="picwrap"><img id="${imgId}" src="${src}" onload="setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'center'}),80)" onerror="this.parentNode.innerHTML='<div class=err>图片加载失败</div>'"></div><div class="actions"><button class="btn" onclick="event.stopPropagation();downloadShown('${imgId}',this)">下载</button></div>`;
+      }
+    }else if(active==='video'){
+      let src=a.url,useProxy=a.proxy;
+      if(a.kind==='direct'){try{let j=await (await get(a.url+'?type=json',a.proxy)).json();src=j.url||j.data||a.url;useProxy=0}catch(_){src=a.url}}
+      else if(a.kind==='jsonvideo'){let j=await (await get(a.url,a.proxy)).json();src=val(j,a.field)||j.url||j.data;useProxy=0}
+      src=(useProxy?C:'')+src+(src.includes('?')?'&':'?')+'t='+Date.now();
+      let vidId='vid_'+Date.now()+'_'+i;
+      inner.innerHTML=`<div class="picwrap"><video id="${vidId}" src="${src}" controls playsinline preload="metadata" onloadedmetadata="setTimeout(()=>this.scrollIntoView({behavior:'smooth',block:'center'}),80)" onerror="this.parentNode.innerHTML='<div class=err>视频加载失败</div>'"></video></div>`;
+    }else{
+      let text='';
+      if(a.kind==='jsontext'){let j=await (await get(a.url,a.proxy)).json();text=j[a.field]||j.text||j.msg||JSON.stringify(j)}
+      else if(a.kind==='poem'){let j=await (await get(a.url)).json(),d=j.data||{};text=(d.content||'')+(d.origin&&d.origin.title?'\n——《'+d.origin.title+'》':'')}
+      else if(a.kind==='countdown'){let j=await (await get(a.url,a.proxy)).json();text='📅 '+j.month+'\n📆 '+j.week+'\n📌 '+j.day+'\n⏰ '+j.hour}
+      else if(a.kind==='zodiac'){let z=normZodiac(document.getElementById('zdinp').value||getZodiac());text=fmtZodiac(await (await get(a.url+'?msg='+encodeURIComponent(z),a.proxy)).text())}
+      else if(a.kind==='history'){let j=await (await get(a.url+'?format=json',a.proxy)).json();text='📅 '+j.day+'\n\n'+j.content.map((c,k)=>'• '+c).join('\n')}
+      else if(a.kind==='chouq'){let j=await (await get(a.url,a.proxy)).json(),d=j.data||{};text='🎯 '+d.draw+'\n\n📝 '+d.annotate+'\n\n🔮 '+d.explain+'\n\n📖 '+d.source}
+      else if(a.kind==='juhe'){text=(await (await get(a.url+'?msg=随机一言',a.proxy)).text()).trim()}
+      else{text=await (await get(a.url,a.proxy)).text()}
+      inner.innerHTML=`<div class="bubble" id="bub${i}">${esc(text)}</div><div class="actions"><button class="btn" onclick="event.stopPropagation();copyFromBubble(this)">复制</button></div>`;
+      setTimeout(()=>{let bub=document.getElementById('bub'+i);if(bub)bub.scrollIntoView({behavior:'smooth',block:'center'})},100);
+    }
+  }catch(e){inner.innerHTML='<div class="err">这个接口这次没接住，刷新再试。</div>'}
+}
+
+function carouselShift(cid,dir){
+  let el=document.getElementById(cid),track=el.querySelector('.carousel-track'),dots=el.querySelectorAll('.carousel-dot');
+  let total=dots.length,idx=carouselState[cid]||0;
+  idx=(idx+dir+total)%total;carouselState[cid]=idx;
+  track.style.transform=`translateX(-${idx*100}%)`;
+  dots.forEach((d,k)=>d.classList.toggle('active',k===idx));
+}
+function carouselGo(cid,idx){
+  let el=document.getElementById(cid),track=el.querySelector('.carousel-track'),dots=el.querySelectorAll('.carousel-dot');
+  carouselState[cid]=idx;track.style.transform=`translateX(-${idx*100}%)`;
+  dots.forEach((d,k)=>d.classList.toggle('active',k===idx));
+}
+
+// Voice card (王者荣耀语音)
+async function openVoiceCard(i){
+  let a=apis[active][i],card=document.getElementById('c'+i),b=document.getElementById('b'+i),inner=b.querySelector('.inner');
+  if(b.classList.contains('open')){b.classList.remove('open');card.classList.remove('open');return}
+  b.classList.add('open');card.classList.add('open');
+  inner.innerHTML='<div class="load">加载中……</div>';
+  try{
+    let inp=document.getElementById('heroinp'),h=inp?inp.value.trim()||'李白':'李白';
+    let j=await (await get(a.url+'?msg='+encodeURIComponent(h),a.proxy)).json();
+    if(j.code!==1){inner.innerHTML='<div class="err">未找到英雄「'+esc(h)+'」，试试其他英雄名</div>';return}
+    let items=j.data||[];
+    inner.innerHTML=`<div class="voice-card"><div class="voice-hero"><img src="${j.img||''}" onerror="this.style.display='none'" alt=""><span>${esc(j.hero||h)}</span></div><div class="voice-list">${items.map((v,k)=>`<div class="voice-item" data-voice="${esc(v.voice)}" onclick="playVoiceItem(this)"><div class="v-play"><div class="vtri"></div></div><span class="v-text">${esc(v.lines)}</span></div>`).join('')}</div></div>`;
+    setTimeout(()=>{let el=document.getElementById('b'+i);if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},100);
+  }catch(e){inner.innerHTML='<div class="err">语音加载失败，换一个英雄试试。</div>'}
+}
+
+async function playVoiceItem(el){
+  let url=el.dataset.voice;
+  if(currentAudio){currentAudio.el.pause();document.querySelectorAll('.voice-item .v-play.playing').forEach(x=>x.classList.remove('playing'))}
+  let vp=el.querySelector('.v-play');
+  vp.classList.add('playing');
+  try{
+    let blobUrl=await (await fetch(C+url+'?_='+Date.now())).blob();
+    let au=URL.createObjectURL(blobUrl);
+    let audio=new Audio(au);audio.play();
+    currentAudio={el:audio,i:-1,url:au};
+    audio.onended=()=>{vp.classList.remove('playing');currentAudio=null};
+    audio.onerror=()=>{vp.classList.remove('playing');currentAudio=null};
+  }catch(e){vp.classList.remove('playing')}
+}
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function hint(btn,txt){let old=btn.textContent;btn.textContent=txt;btn.classList.add('ok');setTimeout(()=>{btn.textContent=old;btn.classList.remove('ok')},1400)}
+async function copyFromBubble(btn){let t=btn.closest('.inner').querySelector('.bubble')?.innerText||'';try{await navigator.clipboard.writeText(t);hint(btn,'已复制 ✓')}catch(e){let ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();hint(btn,'已复制 ✓')}}
+async function downloadShown(id,btn){let img=document.getElementById(id);if(!img)return;try{let c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);let blob=await new Promise(r=>c.toBlob(r,'image/jpeg',.95));if(!blob)throw 0;let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='randomness-'+Date.now()+'.jpg';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);hint(btn,'已下载 ✓')}catch(e){try{let r=await fetch(C+(img.currentSrc||img.src));let blob=await r.blob();let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='randomness-'+Date.now()+'.jpg';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);hint(btn,'已下载 ✓')}catch(_){hint(btn,'下载失败')}}}
+
+// ── Starfield background ──
+(()=>{
+const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');
+let W,H,dpr,time=0,particles=[];
+const PARTICLE_COUNT=800,SPEED=2.2,COLORS=[{r:80,g:230,b:255},{r:200,g:100,b:255},{r:255,g:80,b:180},{r:120,g:220,b:255},{r:255,g:255,b:255},{r:255,g:150,b:255}];
+function resize(){dpr=devicePixelRatio||1;W=innerWidth;H=innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+function rc(){return COLORS[Math.floor(Math.random()*COLORS.length)]}
+function make(){let t=Math.random(),shape=t<.3?'filled-star':t<.5?'outline-star':t<.65?'dot':t<.78?'cross':t<.88?'glow':'sparkle',z=Math.random()*2000+500;return{x:(Math.random()-.5)*W*3,y:(Math.random()-.5)*H*3,z,size:2+Math.random()*11,color:rc(),shape,phase:Math.random()*Math.PI*2,twinkleSpeed:.5+Math.random()*2,rotation:Math.random()*Math.PI*2,rotSpeed:(Math.random()-.5)*.018}}
+function init(){particles=[];for(let i=0;i<PARTICLE_COUNT;i++){let p=make();p.z=Math.random()*2500;particles.push(p)}}
+function star(x,y,s,c,a,r,fill){ctx.save();ctx.translate(x,y);ctx.rotate(r);ctx.beginPath();for(let i=0;i<10;i++){let rr=i%2?s*.4:s,ang=i*Math.PI/5-Math.PI/2;i?ctx.lineTo(Math.cos(ang)*rr,Math.sin(ang)*rr):ctx.moveTo(Math.cos(ang)*rr,Math.sin(ang)*rr)}ctx.closePath();ctx.shadowColor=`rgba(${c.r},${c.g},${c.b},${a*.6})`;ctx.shadowBlur=s;if(fill){ctx.fillStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.fill()}else{ctx.strokeStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.lineWidth=Math.max(.5,s*.12);ctx.stroke()}ctx.shadowBlur=0;ctx.restore()}
+function cross(x,y,s,c,a){ctx.save();ctx.translate(x,y);ctx.strokeStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.lineWidth=Math.max(.5,s*.15);let r=s*.7;ctx.beginPath();ctx.moveTo(0,-r);ctx.lineTo(0,r);ctx.moveTo(-r,0);ctx.lineTo(r,0);ctx.stroke();ctx.restore()}
+function glow(x,y,s,c,a){let g=ctx.createRadialGradient(x,y,0,x,y,s*3);g.addColorStop(0,`rgba(${c.r},${c.g},${c.b},${a*.5})`);g.addColorStop(1,`rgba(${c.r},${c.g},${c.b},0)`);ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,s*3,0,7);ctx.fill()}
+function dot(x,y,s,c,a){ctx.beginPath();ctx.arc(x,y,Math.max(.5,s*.35),0,7);ctx.fillStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.fill()}
+function spark(x,y,s,c,a,r){ctx.save();ctx.translate(x,y);ctx.rotate(r);ctx.strokeStyle=`rgba(${c.r},${c.g},${c.b},${a})`;ctx.lineWidth=Math.max(.5,s*.1);let q=s*.8;ctx.beginPath();ctx.moveTo(0,-q);ctx.lineTo(0,q);ctx.moveTo(-q*.5,-q*.3);ctx.lineTo(q*.5,q*.3);ctx.moveTo(-q*.5,q*.3);ctx.lineTo(q*.5,-q*.3);ctx.stroke();ctx.restore()}
+function animate(){time+=.016;ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);let cx=W/2,cy=H/2,fl=400;particles.sort((a,b)=>b.z-a.z);for(const p of particles){p.z-=SPEED*(1+(2500-p.z)/2500);p.rotation+=p.rotSpeed;if(p.z<=10){Object.assign(p,make());p.z=2500;continue}let sc=fl/p.z,x=cx+p.x*sc,y=cy+p.y*sc,s=p.size*sc;if(x<-50||x>W+50||y<-50||y>H+50)continue;let a=1;if(p.z>2000)a=(2500-p.z)/500;if(p.z<200)a=p.z/200;a=Math.max(0,Math.min(1,a))*(.7+.3*Math.sin(time*p.twinkleSpeed+p.phase));if(s<.3){dot(x,y,s,p.color,a*.6);continue}if(p.shape==='filled-star')star(x,y,s,p.color,a,p.rotation,1);else if(p.shape==='outline-star')star(x,y,s,p.color,a,p.rotation,0);else if(p.shape==='cross')cross(x,y,s,p.color,a);else if(p.shape==='glow')glow(x,y,s,p.color,a);else if(p.shape==='sparkle')spark(x,y,s,p.color,a,p.rotation);else dot(x,y,s,p.color,a)}requestAnimationFrame(animate)}
+addEventListener('resize',resize);resize();init();animate();
+})();
+</script>
+</body>
+</html>
